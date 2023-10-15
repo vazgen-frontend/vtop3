@@ -9,7 +9,7 @@
     ```bash
     git clone https://github.com/vazgen-frontend/vtop3.git
 
-    cd ваш-проект
+    cd vtop3
 
     npm install
 
