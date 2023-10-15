@@ -1,0 +1,225 @@
+.menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 21px;
+    height: 14px;
+    background: none;
+
+    @include tablet {
+        display: flex;
+    }
+
+    span,
+    &::before,
+    &::after {
+        content: "";
+        height: 2px;
+        border-radius: 2px;
+        background: #fff;
+    }
+    span,
+    &::before,
+    &::after {
+        width: 100%;
+    }
+
+    &:hover {
+        span {
+            width: 100%;
+        }
+    }
+}
+
+.header-content {
+    margin-top: 15px;
+    min-height: 96px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 48px;
+    border: 4px solid $primaryColor;
+    border-radius: 64px;
+    font-size: 16px;
+    line-height: 1.25;
+
+    @include tablet {
+        min-height: 56px;
+        border: 2px solid $primaryColor;
+        padding: 8px 14px;
+    }
+}
+
+.menu {
+    &__list {
+        display: flex;
+        margin: 8px;
+        gap: 32px;
+        @include tablet {
+            display: none;
+            margin: 0;
+        }
+    }
+    &__item {
+        white-space: nowrap;
+        &:hover {
+            color: $primaryColor;
+        }
+    }
+}
+
+.login-block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    order: 2;
+
+    .login,
+    .sign-up {
+        white-space: nowrap;
+    }
+    @include tablet {
+        .login,
+        .sign-up {
+            display: none;
+        }
+    }
+}
+
+.translater {
+    position: relative;
+
+    &__icon {
+        width: 1em;
+        height: 1em;
+        margin-right: 8px;
+        color: $langColor;
+
+        @include tablet {
+            font-size: 19px;
+            margin-right: 0;
+        }
+    }
+
+    .lang {
+        text-transform: uppercase;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__select {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 50%;
+        z-index: 2;
+        transform: translateX(-50%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        border: 2px solid $langColor;
+        border-radius: 10px;
+        background-color: #110a1d;
+
+        li {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 8px 0;
+            cursor: pointer;
+
+            &:hover {
+                color: $langColor;
+            }
+
+            &:not(:last-child) {
+                border-bottom: 1px solid $langColor;
+            }
+        }
+
+        &.active {
+            opacity: 1;
+            transition: opacity 0.3s;
+            pointer-events: initial;
+        }
+    }
+}
+
+.header-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 75%;
+
+    @include tablet {
+        display: block;
+    }
+    .login-mobile,
+    .sign-up-mobile {
+        display: none;
+    }
+    &.active {
+        @include tablet {
+            .login-mobile,
+            .sign-up-mobile {
+                display: block;
+                padding: 13px 20px;
+                border: 2px solid $primaryColor;
+                border-radius: 28px;
+                margin-bottom: 8px;
+                background: inherit;
+                color: inherit;
+                width: 100%;
+                text-align: center;
+            }
+            .sign-up-mobile {
+                background-color: $primaryColor;
+                color: #fff;
+            }
+            .menu {
+                order: 2;
+                padding: 30px 15px;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                z-index: 22;
+            }
+            .menu__list {
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .menu__item {
+                padding: 13px 20px;
+                border: 2px solid $primaryColor;
+                border-radius: 28px;
+                margin-bottom: 8px;
+                &:hover {
+                    background: $primaryColor;
+                    color: $white;
+                }
+            }
+            .menu-btn {
+                span {
+                    display: none;
+                }
+                &::before {
+                    transform: rotate(45deg);
+                    position: relative;
+                    top: 43%;
+                }
+                &::after {
+                    transform: rotate(-45deg);
+                    position: relative;
+                    top: -41%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+body {
+    font-family: "Lexend", sans-serif;
+    background: $background;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    &.hidden{
+        overflow: hidden;
+    }
+}
+
+.container {
+    width: 1640px;
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $langColor;
+    padding: 12px;
+    border-radius: 24px;
+    font-size: 16px;
+    line-height: 1.25;
+    &:hover{
+        background: $primaryColor;
+        border: 2px solid $primaryColor;
+    }
+
+    &--primary {
+        background: $primaryColor;
+        border: 2px solid $primaryColor;
+        
+        &:hover{
+            background: transparent;
+        }
+    }
+    @include tablet{
+        padding: 6px;
+    }
+}
